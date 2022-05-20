@@ -116,7 +116,7 @@ def pregunta_03():
     # Defina un diccionario de parámetros para el GridSearchCV. Se deben
     # considerar valores desde 1 hasta 11 regresores para el modelo
     param_grid = {
-        "selectKBest_k":[1,2,3,4,5,6,7,8,9,10,11],
+        "selectKBest_k": list(range(1, 12)),
     }
 
     # Defina una instancia de GridSearchCV con el pipeline y el diccionario de
