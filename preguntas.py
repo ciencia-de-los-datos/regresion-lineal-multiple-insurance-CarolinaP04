@@ -73,10 +73,8 @@ def pregunta_03():
     # Importe GridSearchCV
     # Importe Pipeline
     # Importe OneHotEncoder
-    from sklearn.compose import make_column_selector
-    from sklearn.compose import make_column_transformer
-    from sklearn.feature_selection import SelectKBest
-    from sklearn.feature_selection import f_regression
+    from sklearn.compose import make_column_selector,make_column_transformer
+    from sklearn.feature_selection import SelectKBest,f_regression
     from sklearn.linear_model import LinearRegression
     from sklearn.model_selection import GridSearchCV
     from sklearn.pipeline import Pipeline
@@ -101,18 +99,18 @@ def pregunta_03():
             # características más importantes. Utilice la función f_regression.
             (
                 "selectKBest",
-                SelectKBest(score_func=f_regression),
+                SelectKBest(score_func= f_regression),
             ),
             # Paso 3: Construya un modelo de regresión lineal.
             (
-                "reg_l",
+                "reg",
                 LinearRegression(),
             ),
         ],
     )
 
     # Cargua de las variables.
-    X_train, _, y_train, _ = pregunta_02()
+    X_train, y_train = pregunta_02()
 
     # Defina un diccionario de parámetros para el GridSearchCV. Se deben
     # considerar valores desde 1 hasta 11 regresores para el modelo
