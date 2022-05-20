@@ -9,7 +9,6 @@ selección de las n variables más relevantes usando una prueba f.
 # pylint: disable=invalid-name
 # pylint: disable=unsubscriptable-object
 
-from numpy import dtype
 import pandas as pd
 
 
@@ -73,8 +72,10 @@ def pregunta_03():
     # Importe GridSearchCV
     # Importe Pipeline
     # Importe OneHotEncoder
-    from sklearn.compose import make_column_selector,make_column_transformer
-    from sklearn.feature_selection import SelectKBest,f_regression
+    from sklearn.compose import make_column_selector
+    from sklearn.compose import make_column_transformer
+    from sklearn.feature_selection import SelectKBest
+    from sklearn.feature_selection import f_regression
     from sklearn.linear_model import LinearRegression
     from sklearn.model_selection import GridSearchCV
     from sklearn.pipeline import Pipeline
@@ -110,7 +111,7 @@ def pregunta_03():
     )
 
     # Cargua de las variables.
-    X_train, y_train = pregunta_02()
+    X_train, X_test, y_train, y_test = pregunta_02()
 
     # Defina un diccionario de parámetros para el GridSearchCV. Se deben
     # considerar valores desde 1 hasta 11 regresores para el modelo
